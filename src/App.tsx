@@ -21,19 +21,12 @@ function App() {
     )
     
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>error</p>;
+    if (error) return <p>error</p>
 
     return (
         <React.Fragment>
             <h1> Movie List </h1>
-            <div className="container">
-                <div key={data.ID} className="card">
-                    <div className="card-body">
-                        <h3>{data.name}</h3>
-                        <p>{data.description}</p>
-                    </div>
-                </div>
-            </div>
+            <p> {data.MovieData[0].Name} </p>
         </React.Fragment>
 
     );
