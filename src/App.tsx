@@ -4,33 +4,38 @@ import React from 'react';
 // Materials
 
 // Apollo
-import ApolloClient from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 // Database
-
+import { Movie_Data_By_ID } from './GraphQL/Queries/movie.queries';
 
 // CSS
 import './index.css';
 
 
 function App() {
- 
-    const httpLink = new HttpLink({
-        uri: "https://sweet-salmon-23.hasura.app/v1/graphql"
-    })
-
-    const client = new ApolloClient({
-        link: httpLink,
-        cache: new InMemoryCache(),
-      });
     
+    let age: number = 0;
+    const {data, loading, error } = useQuery(
+        Movie_Data_By_ID, { variables: {ID: age}, }
+    )
+    
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>error</p>;
+
     return (
-        <ApolloProvider client={client}>
-            
-        </ApolloProvider>
+        <React.Fragment>
+            <h1> Movie List </h1>
+            <div className="container">
+                <div key={data.ID} className="card">
+                    <div className="card-body">
+                        <h3>{data.name}</h3>
+                        <p>{data.description}</p>
+                    </div>
+                </div>
+            </div>
+        </React.Fragment>
+
     );
 }
 
