@@ -1,3 +1,6 @@
 Current work in progress full-stack application.
 
-React, Graphql, and Hasura Cloud
+Front end: React
+Back end: Graphql, Hasura Cloud, Apollo
+
+
