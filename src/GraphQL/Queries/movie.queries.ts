@@ -1,11 +1,11 @@
 import gql from 'graphql-tag'
-import { Movie_Data_Fragment } from '../Fragments/movie.fragments'
+import { Movie_Fragment } from '../Fragments/movie.fragments'
 
-export const Movie_Data_By_ID = gql`
-    query MovieDataQuery($ID: Int!) {
-        MovieData(where: {ID: {_eq: $ID}}) {
-            ...MovieData
+export const Movie_By_ID = gql`
+    query MovieQuery($movie_id: Int!) {
+        Movie(where: {movie_id: {_eq: $movie_id}}) {
+            ...Movie
         }
     }
-    ${Movie_Data_Fragment}
+    ${Movie_Fragment}
 `   

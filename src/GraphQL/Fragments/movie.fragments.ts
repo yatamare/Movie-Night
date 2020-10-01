@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
-export const Movie_Data_Fragment = gql`
-    fragment MovieData on MovieData {
-        Name
-        ID
-        Description
+export const Movie_Fragment = gql`
+    fragment Movie on Movie {
+        movie_name
+        movie_id
+        movie_description
     }`

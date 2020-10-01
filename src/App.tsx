@@ -7,7 +7,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 // Database
-import { Movie_Data_By_ID } from './GraphQL/Queries/movie.queries';
+import { Movie_By_ID } from './GraphQL/Queries/movie.queries';
 
 // CSS
 import './index.css';
@@ -15,9 +15,8 @@ import './index.css';
 
 function App() {
     
-    let age: number = 0;
     const {data, loading, error } = useQuery(
-        Movie_Data_By_ID, { variables: {ID: age}, }
+        Movie_By_ID, { variables: {movie_id: 0}, }
     )
     
     if (loading) return <p>Loading...</p>;
@@ -26,7 +25,12 @@ function App() {
     return (
         <React.Fragment>
             <h1> Movie List </h1>
-            <p> {data.MovieData[0].Name} </p>
+            <div className="container">
+                <p> {data.Movie[0].movie_name} </p>
+                <p> Hello there</p>
+
+
+            </div>
         </React.Fragment>
 
     );
