@@ -10,9 +10,9 @@ export const User_By_ID = gql`
     ${User_Fragment}
 `
 
-export const User_By_Name = gql`
-    query UserQuery($user_name: String!) {
-        User(where: {user_name: {_eq: $user_name}}) {
+export const Users_Query = gql`
+    query UserQuery {
+        User(order_by: {user_id: asc}) {
             ...User
         }
     }
