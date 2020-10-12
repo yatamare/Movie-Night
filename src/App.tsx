@@ -1,6 +1,11 @@
 // Base
 import React from 'react';
-import { GetData } from './Tools';
+
+// Apollo
+import { useQuery } from '@apollo/react-hooks';
+
+// Database
+import { MOVIES_LIKED_BY_USER_QUERY } from './GraphQL/Queries/movie.queries';
 
 // Materials
 
@@ -8,19 +13,20 @@ import { GetData } from './Tools';
 import './index.css';
 
 function App() {
-    let requestType = 0;
     let requestID = 0;
-    
-    var requestedData = GetData(requestType, requestID);
-    if (requestedData === "loading...") return <p>Loading...</p>;
-    if (requestedData === "error!") return <p>Error!</p>;
 
+    const {data, loading, error} = useQuery(
+        MOVIES_LIKED_BY_USER_QUERY, { variables: {user_id: requestID}, }
+    )
+    if (loading) return <p>"loading..."</p>;
+    if (error) return <p>"error!'</p>;
+    
     return (
         <React.Fragment>
             <h1> Movie List </h1>
             <div className="container">
-                <p> {requestedData[0]} </p>
-                <p> {requestedData[1]} </p>
+                <p> {data.Movie[0].movie_name} </p>
+                <p> {data.Movie[1].movie_name} </p>
             </div>
         </React.Fragment>
 

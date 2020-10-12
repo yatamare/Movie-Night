@@ -5,19 +5,13 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 // Database
-import { Movie_By_ID } from '../GraphQL/Queries/movie.queries';
-import { Movies_Query } from '../GraphQL/Queries/movie.queries';
-import { Liked_By_Movie} from '../GraphQL/Queries/like.queries';
-import { Likes_By_User} from '../GraphQL/Queries/like.queries';
-
-// Materials
+import { MOVIES_LIKED_BY_USER_QUERY } from '../GraphQL/Queries/movie.queries';
+import { MOVIE_ALL_QUERY } from '../GraphQL/Queries/movie.queries';
 
 // CSS
+import '../index.css';
 
-function Movies(){
-    const {data, loading, error} = useQuery(Movies_Query);
-    if (loading) return "loading...";
-    if (error) return "error!";
+export function Movies(userID: number){
 
-
+    return(false);
 }
