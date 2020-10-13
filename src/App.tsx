@@ -19,21 +19,18 @@ import MenuIcon from '@material-ui/core/Menu';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      height: "100%",
       backgroundColor: '#6f7072',
     },
     navBar: {
         backgroundColor: '#313233'
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
     link: {
         textDecoration: 'none',
         color: "white",
+        paddingRight: '40px',
     },
     linksRow: {
-        paddingRight: '50px',
+        paddingRight: '10px',
     },
     title: {
       flexGrow: 1,
@@ -54,17 +51,20 @@ function App() {
                         <Toolbar>
                             <div className={classes.title}>
                                 <Typography variant="h5" className={classes.title}>
-                                    Movie Night
+                                    <Link to={"/home"} className={classes.link}> Movie Night </Link>
                                 </Typography>
                             </div>
                             <div className={classes.linksRow}>
-                                <Link to={"/movies"} className={classes.link}>Movies</Link>
+                                <Typography variant="h6" className={classes.title}>
+                                    <Link to={"/users"} className={classes.link}>Users</Link>
+                                    <Link to={"/movies"} className={classes.link}>Movies</Link>
+                                    <Link to={"/login"} className={classes.link}>Login</Link>
+                                </Typography>
                             </div>
                         </Toolbar>
                     </AppBar>
                     <Switch>
-                        <Route path='/movies' component={Movies} />
-                        <Route render={() => <Redirect to={{pathname: "/"}} />} />
+                        <Route path="/movies" component={Movies} />
                     </Switch>
                 </Router>
             </div>
