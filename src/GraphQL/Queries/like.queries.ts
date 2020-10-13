@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 import { Likes_Fragment } from '../Fragments/likes.fragments'
 
-export const Likes_By_User = gql`
+export const LIKED_BY_USER_QUERY = gql`
     query UserQuery($user_id: Int!) {
         Likes(where: {user_id: {_eq: $user_id}}) {
             ...Likes
@@ -10,7 +10,7 @@ export const Likes_By_User = gql`
     ${Likes_Fragment}
 `
 
-export const Liked_By_Movie = gql`
+export const LIKED_BY_MOVIE_QUERY = gql`
     query UserQuery($movie_id: Int!) {
         Likes(where: {movie_id: {_eq: $movie_id}}) {
             ...Likes
