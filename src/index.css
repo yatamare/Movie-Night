@@ -1,17 +1,9 @@
 body {
-    margin: 5px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #6f7072;
     font-family: 'kalam';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      grid-gap: 19px;
-  }
-  
-  .container > .card img {
-      max-width: 100%;
-  }
-  
+}
