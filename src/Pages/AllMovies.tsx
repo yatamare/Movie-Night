@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       height: 325,
       width: 250,
-      backgroundColor: '#313233',
+      backgroundColor: '#4a4c4d',
     },
     title: {
         marginTop: 20,

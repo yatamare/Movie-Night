@@ -10,13 +10,8 @@ import { MOVIES_LIKED_BY_USER_QUERY } from '../GraphQL/Queries/movie.queries';
 // CSS & Material UI
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grid, { GridSpacing } from '@material-ui/core/Grid';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import { BottomNavigation } from '@material-ui/core';
 
 ////////////////////////////////////////////
 // Styles
@@ -28,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       height: 325,
       width: 250,
-      backgroundColor: '#313233',
+      backgroundColor: '#4a4c4d',
     },
     title: {
         marginTop: 20,

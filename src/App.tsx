@@ -19,7 +19,7 @@ import MenuIcon from '@material-ui/core/Menu';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        backgroundColor: '#6f7072',
+        backgroundColor: '#73939C',
     },
     navBar: {
         backgroundColor: '#313233'

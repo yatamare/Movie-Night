@@ -20,7 +20,38 @@ const useStyles = makeStyles((theme: Theme) =>
     link: {
         textDecoration: 'none',
         color: "white",
-        paddingRight: '30px',
+        marginTop: 5,
+        paddingRight: 35,
+        paddingLeft: 35,
+        fontSize: 20,
+    },
+    linkList: {
+        paddingTop: 2,
+    },
+    paperLink: {
+        marginTop: 8,
+        height: 25,
+        width: 250,
+        backgroundColor: '#313233',
+        marginLeft: "auto",
+        marginRight: "auto",
+        textAlign: "center",
+    },
+    paperContainer:{
+        marginTop: 20,
+        height: "75%",
+        width: "80%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        backgroundColor: '#313233',
+    },
+    center: {
+        marginLeft: "auto",
+        marginRight: "auto",
+        textAlign: "center",
+    },
+    parent: {
+        position: "relative",
     },
   }),
 );
@@ -34,12 +65,23 @@ function Movies(){
     return(
         <div className={classes.root}>
             <Router>
-                <Link to={"/movies-liked"} className={classes.link}>Users</Link>
-                <Link to={"/movies-all"} className={classes.link}>All</Link>
-                <Switch>
-                    <Route path="/movies-liked" component={LikedMovies} />
-                    <Route path="/movies-all" component={AllMovies} />
-                </Switch>
+                <div className={classes.parent}>
+                    <Paper elevation={3} className={classes.paperLink}>
+                        <div className={classes.linkList}>
+                            <Link to={"/movies-liked"} className={classes.link}>Liked</Link>
+                            |
+                            <Link to={"/movies-all"} className={classes.link}>All</Link>
+                        </div>
+                    </Paper>
+                </div>
+                <div>
+                    <Paper elevation={0} className={classes.paperContainer}>
+                        <Switch>
+                            <Route path="/movies-liked" component={LikedMovies} />
+                            <Route path="/movies-all" component={AllMovies} />
+                        </Switch>
+                    </Paper>
+                </div>
             </Router>
         </div>
     );
