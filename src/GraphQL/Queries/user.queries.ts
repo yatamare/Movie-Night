@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 import { User_Fragment } from '../Fragments/user.fragments'
 
 export const USER_BY_ID_QUERY= gql`
-    query UserQuery($user_id: Int!) {
+    query USERQUERY($user_id: Int!) {
         User(where: {user_id: {_eq: $user_id}}) {
             ...User
         }

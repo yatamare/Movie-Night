@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-ro
 
 // Pages
 import Movies from './Pages/Movies';
+import Users from './Pages/Users';
 
 // Materials
 import { makeStyles } from '@material-ui/core/styles';
@@ -62,8 +63,10 @@ function App() {
                     </Toolbar>
                 </AppBar>
                 <Switch>
-                    <Route path="" component={Movies} />
+                    <Route path="" component={Users} />
+                    <Route path="/home" component={Movies} />
                     <Route path="/movies" component={Movies} />
+                    <Route path="/users" component={Users} />
                 </Switch>
             </Router>
         </div>
