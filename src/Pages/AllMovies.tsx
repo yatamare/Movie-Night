@@ -8,10 +8,11 @@ import { useQuery } from '@apollo/react-hooks';
 import { MOVIE_ALL_QUERY } from '../GraphQL/Queries/movie.queries';
 
 // CSS & Material UI
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, createStyles, Theme, ThemeProvider } from '@material-ui/core/styles';
 import Grid, { GridSpacing } from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import { green } from '@material-ui/core/colors';
 
 ////////////////////////////////////////////
 // Styles
@@ -57,6 +58,12 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+const theme = createMuiTheme({
+    palette: {
+      primary: green,
+    },
+});
+
 ////////////////////////////////////////////
 // App
 function AllMovies(){
@@ -91,9 +98,11 @@ function AllMovies(){
                                     <p className={classes.center}>{movie.movie_description}</p>
                                 </div>
                                 <div className={classes.remove}>
-                                    <Button className={classes.remove} variant="outlined" color="secondary">
-                                        Remove
-                                    </Button>
+                                <ThemeProvider theme={theme}>
+                                        <Button className={classes.remove} variant="contained" color="primary" >
+                                            Add
+                                        </Button>
+                                    </ThemeProvider>
                                 </div>
                             </div>
                         </Paper>

@@ -1,6 +1,6 @@
 // Base
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, NavLink, Redirect } from 'react-router-dom';
 
 // Pages
 import UsersFriends from './UsersFriends';
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     paperContainer:{
         marginTop: 20,
-        height: "75%",
+        height: "100%",
         width: "80%",
         marginLeft: "auto",
         marginRight: "auto",
@@ -65,22 +65,22 @@ function Users(){
     //
     return(
         <div className={classes.root}>
-            <Router>
+            <Router
+                basename="/users">
                 <div className={classes.parent}>
                     <Paper elevation={3} className={classes.paperLink}>
                         <div className={classes.linkList}>
-                            <Link to={"/users-friends"} className={classes.link}>Friends</Link>
+                            <NavLink to="/friends" activeStyle={{color:"#9c7393"}} className={classes.link}>Friends</NavLink>
                             |
-                            <Link to={"/users-all"} className={classes.link}>All</Link>
+                            <NavLink to="/all" activeStyle={{color:"#9c7393"}} className={classes.link}>All</NavLink>
                         </div>
                     </Paper>
                 </div>
                 <div>
                     <Paper elevation={0} className={classes.paperContainer}>
                         <Switch>
-                            <Route path="" component={UsersAll} />
-                            <Route path="/users-all" component={UsersFriends} />
-                            <Route path="/users-friends" component={UsersAll} />
+                            <Route path={"/all"} component={UsersAll} />
+                            <Route path={"/friends"} component={UsersFriends} />
                         </Switch>
                     </Paper>
                 </div>

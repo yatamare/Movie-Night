@@ -1,6 +1,6 @@
 // Base
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect, NavLink } from 'react-router-dom';
 
 // Pages
 import Movies from './Pages/Movies';
@@ -11,9 +11,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/core/Menu';
 
 ////////////////////////////////////////////
 // Styles
@@ -45,26 +42,26 @@ function App() {
 
     return (
         <div className={classes.root}>
-            <Router>
+            <Router
+                basename=""
+                forceRefresh={true}>
                 <AppBar position="static" className={classes.navBar}>
                     <Toolbar>
                         <div className={classes.title}>
                             <Typography variant="h5" className={classes.title}>
-                                <Link to={"/home"} className={classes.link}> Movie Night </Link>
+                                <Link to={""} className={classes.link}> Movie Night </Link>
                             </Typography>
                         </div>
                         <div className={classes.linksRow}>
                             <Typography variant="h6" className={classes.title}>
-                                <Link to={"/users"} className={classes.link}>Users</Link>
-                                <Link to={"/movies"} className={classes.link}>Movies</Link>
-                                <Link to={"/login"} className={classes.link}>Login</Link>
+                                <NavLink to="/users" activeStyle={{color:"#9c7393"}} className={classes.link}>Users</NavLink>
+                                <NavLink to="/movies" activeStyle={{color:"#9c7393"}} className={classes.link}>Movies</NavLink>
+                                <NavLink to="/login" activeStyle={{color:"red"}} className={classes.link}>Login</NavLink>
                             </Typography>
                         </div>
                     </Toolbar>
                 </AppBar>
                 <Switch>
-                    <Route path="" component={Users} />
-                    <Route path="/home" component={Movies} />
                     <Route path="/movies" component={Movies} />
                     <Route path="/users" component={Users} />
                 </Switch>

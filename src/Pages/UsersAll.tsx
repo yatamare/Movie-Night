@@ -5,14 +5,14 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 // Database
-import { MOVIES_LIKED_BY_USER_QUERY } from '../GraphQL/Queries/movie.queries';
 import { USER_QUERY } from '../GraphQL/Queries/user.queries';
 
 // CSS & Material UI
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, createStyles, Theme, ThemeProvider  } from '@material-ui/core/styles';
 import Grid, { GridSpacing } from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import { green } from '@material-ui/core/colors';
 
 ////////////////////////////////////////////
 // Styles
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     paper: {
-      height: 325,
+      height: 250,
       width: 250,
       backgroundColor: '#4a4c4d',
     },
@@ -58,6 +58,12 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+const theme = createMuiTheme({
+    palette: {
+      primary: green,
+    },
+});
+
 ////////////////////////////////////////////
 // App
 function UsersAll(){
@@ -86,9 +92,11 @@ function UsersAll(){
                                     <p className={classes.center}>{user.user_name}</p>
                                 </div>
                                 <div className={classes.remove}>
-                                    <Button className={classes.remove} variant="outlined" color="secondary">
-                                        Remove
-                                    </Button>
+                                    <ThemeProvider theme={theme}>
+                                        <Button className={classes.remove} variant="contained" color="primary" >
+                                            Add
+                                        </Button>
+                                    </ThemeProvider>
                                 </div>
                             </div>
                         </Paper>

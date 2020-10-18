@@ -5,7 +5,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 // Database
-import { MOVIES_LIKED_BY_USER_QUERY } from '../GraphQL/Queries/movie.queries';
+import { FRIEND_QUERY } from '../GraphQL/Queries/user.queries';
 
 // CSS & Material UI
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
@@ -65,7 +65,7 @@ function UsersFriends(){
     let userId = 0;
     // Grab the required data
     var {data, loading, error} = useQuery(
-        MOVIES_LIKED_BY_USER_QUERY, { variables: {user_id: userId}, }
+        FRIEND_QUERY, { variables: {user_id: userId}, }
     )
     
     if (loading) return <p>Loading...</p>;
@@ -77,18 +77,12 @@ function UsersFriends(){
             <Grid container className={classes.root} spacing={2}>
             <Grid item xs={12}>
                 <Grid container justify="center" spacing={2}>
-                    {data.Movie.map((movie: any, index: any) => (
+                    {data.User.map((user: any, index: any) => (
                     <Grid key={index} item>
                         <Paper elevation={3} className={classes.paper}>
                             <div className={classes.parent}>
-                                <div className={classes.title}>
-                                    <p className={classes.center}>{movie.movie_name}</p>
-                                </div>
-                                <div className={classes.image}> 
-                                    <p> (image goes here) </p>
-                                </div>
                                 <div className={classes.description}>
-                                    <p className={classes.center}>{movie.movie_description}</p>
+                                    <p className={classes.center}>{user.user_name}</p>
                                 </div>
                                 <div className={classes.remove}>
                                     <Button className={classes.remove} variant="outlined" color="secondary">

@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     paperContainer:{
         marginTop: 20,
-        height: "75%",
+        height: "100%",
         width: "80%",
         marginLeft: "auto",
         marginRight: "auto",
@@ -64,21 +64,22 @@ function Movies(){
     //
     return(
         <div className={classes.root}>
-            <Router>
+            <Router
+                basename="/movies">
                 <div className={classes.parent}>
                     <Paper elevation={3} className={classes.paperLink}>
                         <div className={classes.linkList}>
-                            <Link to={"/movies-liked"} className={classes.link}>Liked</Link>
+                            <Link to="/liked" className={classes.link}>Liked</Link>
                             |
-                            <Link to={"/movies-all"} className={classes.link}>All</Link>
+                            <Link to="/all" className={classes.link}>All</Link>
                         </div>
                     </Paper>
                 </div>
                 <div>
                     <Paper elevation={0} className={classes.paperContainer}>
                         <Switch>
-                            <Route path="/movies-liked" component={LikedMovies} />
-                            <Route path="/movies-all" component={AllMovies} />
+                            <Route path={"/liked"} component={LikedMovies} />
+                            <Route path={"/all"} component={AllMovies} />
                         </Switch>
                     </Paper>
                 </div>

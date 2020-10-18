@@ -17,4 +17,13 @@ export const USER_QUERY = gql`
         }
     }
     ${User_Fragment}
-`   
+`  
+
+export const FRIEND_QUERY = gql`
+    query UserQuery($user_id: Int!) {
+        User(where: {Friends: {Friend_Data: {user_id: {_eq: $user_id}}}}) {
+            ...User
+        }
+    }
+    ${User_Fragment}
+`
