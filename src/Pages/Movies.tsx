@@ -1,6 +1,6 @@
 // Base
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, NavLink, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
 // Pages
 import LikedMovies from './LikedMovies';
