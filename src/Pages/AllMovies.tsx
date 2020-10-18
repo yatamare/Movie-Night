@@ -48,9 +48,11 @@ const useStyles = makeStyles((theme: Theme) =>
         textAlign: "center",
     },
     remove: {
-        marginLeft: "auto",
-        marginRight: "auto",
         textAlign: "center",
+        paddingLeft: "78",
+        position: "absolute",
+        bottom: 15,
+        left: 100,
     },
     parent: {
         position: "relative",
@@ -86,26 +88,23 @@ function AllMovies(){
                 <Grid container justify="center" spacing={2}>
                     {data.Movie.map((movie: any, index: any) => (
                     <Grid key={index} item>
-                        <Paper elevation={3} className={classes.paper}>
-                            <div className={classes.parent}>
+                        <div className={classes.parent}>
+                            <Paper elevation={3} className={classes.paper}>
                                 <div className={classes.title}>
                                     <p className={classes.center}>{movie.movie_name}</p>
-                                </div>
-                                <div className={classes.image}> 
-                                    <p> (image goes here) </p>
                                 </div>
                                 <div className={classes.description}>
                                     <p className={classes.center}>{movie.movie_description}</p>
                                 </div>
                                 <div className={classes.remove}>
                                 <ThemeProvider theme={theme}>
-                                        <Button className={classes.remove} variant="contained" color="primary" >
+                                        <Button variant="contained" color="primary" >
                                             Add
                                         </Button>
                                     </ThemeProvider>
                                 </div>
-                            </div>
-                        </Paper>
+                            </Paper>
+                        </div>
                     </Grid>
                 ))}
                 </Grid>

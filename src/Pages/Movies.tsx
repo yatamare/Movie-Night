@@ -1,6 +1,6 @@
 // Base
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, NavLink, Redirect } from 'react-router-dom';
 
 // Pages
 import LikedMovies from './LikedMovies';
@@ -69,9 +69,9 @@ function Movies(){
                 <div className={classes.parent}>
                     <Paper elevation={3} className={classes.paperLink}>
                         <div className={classes.linkList}>
-                            <Link to="/liked" className={classes.link}>Liked</Link>
+                            <NavLink to="/liked" activeStyle={{color:"#9c7393"}} className={classes.link}>Liked</NavLink>
                             |
-                            <Link to="/all" className={classes.link}>All</Link>
+                            <NavLink to="/all" activeStyle={{color:"#9c7393"}} className={classes.link}>All</NavLink>
                         </div>
                     </Paper>
                 </div>

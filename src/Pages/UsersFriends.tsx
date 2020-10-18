@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     paper: {
-      height: 325,
+      height: 150,
       width: 250,
       backgroundColor: '#4a4c4d',
     },
@@ -81,7 +81,7 @@ function UsersFriends(){
                     <Grid key={index} item>
                         <Paper elevation={3} className={classes.paper}>
                             <div className={classes.parent}>
-                                <div className={classes.description}>
+                                <div className={classes.title}>
                                     <p className={classes.center}>{user.user_name}</p>
                                 </div>
                                 <div className={classes.remove}>
